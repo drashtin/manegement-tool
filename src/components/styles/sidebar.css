@@ -1,0 +1,152 @@
+.sidebar {
+  width: 250px;
+  background-color: rgb(62, 100, 150);
+  padding-top: 60px;
+  /* padding-left: 20px; */
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: 100%;
+  z-index: 500;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 30px 0;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar a:hover {
+  /* background-color: #34495E; */
+  background-color: #739fc8;
+}
+
+a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+a::before,
+a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+a::before {
+  background-color: #54b3d6;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: white;
+  padding: 30px 0;
+  padding-left: 35px;
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  padding-left: 35px;
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    margin-left: 220px;
+  }
+
+  .employee-table {
+    font-size: 0.85em;
+  }
+
+  .header__title {
+    padding-left: 20px;
+  }
+
+  .btn-group {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .header__title {
+    padding-left: 10px;
+  }
+
+  .btn-group .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100px;
+  }
+
+  .main-content {
+    margin-left: 100px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header__title {
+    padding-left: 5px;
+  }
+
+  .btn-group .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .employee-table {
+    font-size: 0.75em;
+  }
+}
